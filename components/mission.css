@@ -1,0 +1,129 @@
+.mission-container1 {
+  width: 100%;
+  flex-wrap: wrap;
+  padding-top: 0px;
+  flex-direction: row;
+  padding-bottom: 0px;
+  justify-content: center;
+}
+ 
+.mission-max-width {
+  gap: 80px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: var(--dl-space-space-unit);
+  overflow: hidden;
+  flex-wrap: wrap;
+  max-width: var(--dl-size-size-maxwidth);
+  align-self: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: var(--dl-radius-radius-inputradius);
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+ 
+.mission-container2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: row;
+  justify-content: center;
+}
+ 
+.mission-column1 {
+  gap: var(--dl-space-space-oneandhalfunits);
+  display: flex;
+  padding: var(--dl-space-space-unit);
+  flex-grow: 1;
+  align-items: center;
+  border-radius: var(--dl-radius-radius-inputradius);
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+ 
+.mission-text2 {
+  width: 100%;
+}
+ 
+.mission-column2 {
+  gap: var(--dl-space-space-oneandhalfunits);
+  flex: 1;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-items: stretch;
+  flex-direction: row;
+  justify-content: center;
+}
+ 
+.mission-placeholder-image1 {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 600px;
+}
+ 
+.mission-placeholder-image2 {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 600px;
+}
+ 
+.mission-fragment1 {
+  display: contents;
+}
+ 
+.mission-text3 {
+  display: inline-block;
+}
+ 
+.mission-fragment2 {
+  display: contents;
+}
+ 
+.mission-text4 {
+  color: #ffffff;
+  display: inline-block;
+}
+ 
+
+ 
+@media(max-width: 1100px) {
+  .mission-container2 {
+    width: 100%;
+    justify-content: center;
+  }
+  .mission-column1 {
+    align-items: center;
+  }
+  .mission-column2 {
+    align-items: center;
+  }
+  .mission-placeholder-image1 {
+    height: 100%;
+  }
+  .mission-placeholder-image2 {
+    height: 100%;
+  }
+}
+ 
+@media(max-width: 991px) {
+  .mission-container1 {
+    flex-wrap: wrap;
+  }
+  .mission-container2 {
+    flex-direction: column;
+  }
+  .mission-placeholder-image1 {
+    width: 100%;
+  }
+  .mission-placeholder-image2 {
+    width: 100%;
+  }
+}
