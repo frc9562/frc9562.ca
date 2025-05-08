@@ -65,7 +65,7 @@ export function AboutFirst() {
 
               <div className="order-1 md:order-2 animate-slide-in-right">
                 <img
-                  src="/images/what-is-first.jpg"
+                  src="/images/home_page/about_first/what.png"
                   alt="FIRST Robotics Competition"
                   className="rounded-lg shadow-xl w-full h-auto object-cover aspect-video border border-red-900/20"
                   onError={(e) => {
@@ -81,7 +81,7 @@ export function AboutFirst() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <img
-                  src="/images/first-goals.jpg"
+                  src="/images/home_page/about_first/foster_ino.png"
                   alt="FIRST Robotics Goals"
                   className="rounded-lg shadow-xl w-full h-auto object-cover aspect-video border border-red-900/20"
                   onError={(e) => {
@@ -145,7 +145,7 @@ export function AboutFirst() {
               </div>
               <div className="order-1 md:order-2 animate-slide-in-right">
                 <img
-                  src="/images/community-impact.jpg"
+                  src="/images/home_page/about_first/community.png"
                   alt="Community Impact"
                   className="rounded-lg shadow-xl w-full h-auto object-cover aspect-video border border-red-900/20"
                   onError={(e) => {

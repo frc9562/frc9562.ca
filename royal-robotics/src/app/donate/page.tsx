@@ -43,38 +43,59 @@ export default function DonatePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {/* Bronze Card */}
-            <div className="bg-[#755146] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform">
+            <div className="bg-[#755146] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform border border-[#8a6459]/50 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                <svg viewBox="0 0 24 24" fill="white" className="w-full h-full">
+                  <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               <div className="flex items-center justify-center mb-4">
-                <Award className="h-8 w-8 text-white" />
+                <div className="bg-white/20 p-3 rounded-full">
+                  <Award className="h-7 w-7 text-white" />
+                </div>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-white">Bronze</h3>
               <p className="text-base text-white mb-5">This plaque is for sponsors who donate $100+</p>
-              <div className="flex justify-center">
+              <div className="flex justify-center bg-white/10 py-2 px-4 rounded-full mx-auto w-16 border border-white/20">
                 <span className="text-2xl font-bold text-white">$</span>
               </div>
             </div>
 
             {/* Silver Card */}
-            <div className="bg-[#9a9a9a] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform">
+            <div className="bg-[#9a9a9a] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform border border-[#b3b3b3]/50 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                <svg viewBox="0 0 24 24" fill="white" className="w-full h-full">
+                  <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               <div className="flex items-center justify-center mb-4">
-                <Award className="h-8 w-8 text-white" />
+                <div className="bg-white/20 p-3 rounded-full">
+                  <Award className="h-7 w-7 text-white" />
+                </div>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-white">Silver</h3>
               <p className="text-base text-white mb-5">This plaque is for sponsors who donate $1000+</p>
-              <div className="flex justify-center gap-3">
+              <div className="flex justify-center gap-3 bg-white/10 py-2 px-4 rounded-full mx-auto w-24 border border-white/20">
                 <span className="text-2xl font-bold text-white">$</span>
                 <span className="text-2xl font-bold text-white">$</span>
               </div>
             </div>
 
             {/* Gold Card */}
-            <div className="bg-[#cd9d39] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform">
+            <div className="bg-[#cd9d39] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform border border-[#e5b54d]/50 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                <svg viewBox="0 0 24 24" fill="white" className="w-full h-full">
+                  <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               <div className="flex items-center justify-center mb-4">
-                <Award className="h-8 w-8 text-white" />
+                <div className="bg-white/20 p-3 rounded-full">
+                  <Award className="h-7 w-7 text-white" />
+                </div>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-white">Gold</h3>
               <p className="text-base text-white mb-5">This plaque is for sponsors who donate $2500+</p>
-              <div className="flex justify-center gap-3">
+              <div className="flex justify-center gap-3 bg-white/10 py-2 px-4 rounded-full mx-auto w-32 border border-white/20">
                 <span className="text-2xl font-bold text-white">$</span>
                 <span className="text-2xl font-bold text-white">$</span>
                 <span className="text-2xl font-bold text-white">$</span>
@@ -84,13 +105,20 @@ export default function DonatePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Diamond Card */}
-            <div className="bg-[#1e5b8d] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform">
+            <div className="bg-[#166dae] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform border border-[#2385cf]/50 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                <svg viewBox="0 0 24 24" fill="white" className="w-full h-full">
+                  <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               <div className="flex items-center justify-center mb-4">
-                <Award className="h-8 w-8 text-white" />
+                <div className="bg-white/20 p-3 rounded-full">
+                  <Award className="h-7 w-7 text-white" />
+                </div>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-white">Diamond</h3>
               <p className="text-base text-white mb-5">This plaque is for sponsors who donate $4500+</p>
-              <div className="flex justify-center gap-3">
+              <div className="flex justify-center gap-3 bg-white/10 py-2 px-4 rounded-full mx-auto w-40 border border-white/20">
                 <span className="text-2xl font-bold text-white">$</span>
                 <span className="text-2xl font-bold text-white">$</span>
                 <span className="text-2xl font-bold text-white">$</span>
@@ -99,13 +127,20 @@ export default function DonatePage() {
             </div>
 
             {/* Ruby Card */}
-            <div className="bg-[#c01c28] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform">
+            <div className="bg-[#b22727] rounded-md p-8 text-center shadow-lg transform hover:scale-105 transition-transform border border-[#d33b3b]/50 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
+                <svg viewBox="0 0 24 24" fill="white" className="w-full h-full">
+                  <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
               <div className="flex items-center justify-center mb-4">
-                <Award className="h-8 w-8 text-white" />
+                <div className="bg-white/20 p-3 rounded-full">
+                  <Award className="h-7 w-7 text-white" />
+                </div>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-white">Ruby</h3>
               <p className="text-base text-white mb-5">This plaque is for sponsors who donate $7500+</p>
-              <div className="flex justify-center gap-3">
+              <div className="flex justify-center gap-3 bg-white/10 py-2 px-4 rounded-full mx-auto w-48 border border-white/20">
                 <span className="text-2xl font-bold text-white">$</span>
                 <span className="text-2xl font-bold text-white">$</span>
                 <span className="text-2xl font-bold text-white">$</span>
@@ -176,8 +211,19 @@ export default function DonatePage() {
                   className="w-full h-auto rounded-md border border-gray-800"
                 />
                 {/* Additional content to fill empty space */}
-                <div className="mt-6 text-gray-400 text-sm text-center">
-                  <p>Follow these instructions carefully to ensure your donation is properly credited to our team.</p>
+                <div className="mt-6 space-y-4">
+                  <div className="bg-black/50 border border-red-900/30 rounded-md p-4">
+                    <h4 className="text-white text-lg font-medium mb-2">Important Note</h4>
+                    <p className="text-gray-300 text-sm">Please follow these instructions carefully to ensure your donation is properly credited to our team.</p>
+                  </div>
+                  <div className="bg-black/50 border border-red-900/30 rounded-md p-4">
+                    <h4 className="text-white text-lg font-medium mb-2">Tax Receipts</h4>
+                    <p className="text-gray-300 text-sm">All donations are eligible for tax receipts. You will receive your receipt via email after completing your donation.</p>
+                  </div>
+                  <div className="flex items-center justify-center gap-3 mt-4 text-gray-300">
+                    <span>Questions about donating?</span>
+                    <a href="/contact" className="text-red-400 hover:text-red-300 transition-colors">Contact us</a>
+                  </div>
                 </div>
               </div>
             </div>

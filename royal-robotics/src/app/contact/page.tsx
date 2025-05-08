@@ -269,15 +269,15 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-red-900/20">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2903.6283792476953!2d-79.849766!3d43.32018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b7223e5e6b8d1%3A0x5e4e287da7b60291!2sBishop%20P.%20F.%20Reding%20Catholic%20Secondary%20School!5e0!3m2!1sen!2sca!4v1709669294686!5m2!1sen!2sca"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2903.6283792476953!2d-79.849766!3d43.32018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b7223e5e6b8d1%3A0x5e4e287da7b60291!2sBishop%20Reding%20Catholic%20Secondary%20School%2C%201120%20Main%20St%20E%2C%20Milton%2C%20ON%20L9T%206H7!5e0!3m2!1sen!2sca!4v1709669294686!5m2!1sen!2sca"
               width="100%"
               height="450"
               style={{ border: 0 }}
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="School Location"
-              className="rounded-lg"
+              title="Bishop Reding Catholic Secondary School"
+              className="rounded-lg shadow-lg"
             ></iframe>
           </div>
         </div>

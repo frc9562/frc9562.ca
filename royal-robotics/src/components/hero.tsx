@@ -43,7 +43,7 @@ export function Hero() {
             <div className="relative">
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border border-red-900/20 animate-pulse-slow">
                 <img
-                  src="/images/robot-competition.jpg"
+                  src="/images/home_page/hero_img.png"
                   alt="FIRST Robotics Competition"
                   className="w-full h-full object-cover"
                 />

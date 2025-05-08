@@ -48,7 +48,7 @@ export default function AboutPage() {
 
             <div className="animate-slide-in-right">
               <img
-                src="/images/robot-competition.jpg"
+                src="/images/about_us_page/mission.png"
                 alt="Team at Competition"
                 className="rounded-lg shadow-xl border border-red-900/20 w-full h-auto"
               />
@@ -206,7 +206,7 @@ export default function AboutPage() {
                 <CardContent className="p-4">
                   <div className="flex flex-col md:flex-row items-start md:items-stretch gap-4 side-by-side-container">
                     <img
-                      src="/images/robot-competition.jpg"
+                      src="/images/about_us_page/robot-2024.png"
                       alt="Crescendo Robot Design"
                       className="rounded-lg w-full md:w-24 h-auto md:h-full object-cover side-by-side-image"
                     />
@@ -225,13 +225,13 @@ export default function AboutPage() {
                 <CardContent className="p-4">
                   <div className="flex flex-col md:flex-row items-start md:items-stretch gap-4 side-by-side-container">
                     <img
-                      src="/images/robot-competition.jpg"
+                      src="/images/about_us_page/robot-2025.png"
                       alt="Previous Competition Robot"
                       className="rounded-lg w-full md:w-24 h-auto md:h-full object-cover side-by-side-image"
                     />
                     <div className="side-by-side-content">
-                      <h4 className="text-white font-medium">Previous Competition Robot</h4>
-                      <p className="text-red-500">The Knight</p>
+                      <h4 className="text-white font-medium">Reefscape Robot Design 2025</h4>
+                      <p className="text-red-500">The Reef Ripper</p>
                       <p className="text-gray-400 text-sm mt-1">
                         Our practice robot with advanced control systems and custom-built components.
                       </p>
