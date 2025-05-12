@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { ClientBody } from "./ClientBody";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-export function generateViewport(): Metadata["viewport"] {
+export function generateViewport(): Viewport {
   return {
     width: "device-width",
     initialScale: 1,

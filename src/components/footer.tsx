@@ -114,9 +114,12 @@ export function Footer() {
         <Separator className="my-6 bg-gray-800" />
 
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} by BR Robotics Team. All rights
             reserved.
+          </p>
+          <p className="text-sm text-gray-500">
+            {process.env.NEXT_PUBLIC_APP_VERSION}
           </p>
           <p className="text-xs text-gray-500 mt-2 md:mt-0">
             FIRST Robotics Competition Team 9562
