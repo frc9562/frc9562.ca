@@ -18,7 +18,8 @@ export function SchoolAbout() {
                 className="w-full h-auto"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = "https://via.placeholder.com/800x600?text=School+Building";
+                  target.src =
+                    "https://via.placeholder.com/800x600?text=School+Building";
                 }}
               />
             </div>
@@ -26,11 +27,16 @@ export function SchoolAbout() {
 
           <div className="space-y-6 animate-slide-in-right">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Bishop Reding Secondary School</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">
+                Bishop Reding Secondary School
+              </h2>
               <p className="text-gray-300 mt-4">
-                Our school has a strong reputation for its academic programs and supportive learning environment,
-                while offering a variety of advanced placement (AP) courses. The school offers many extracurriculars,
-                including athletics, clubs, and community service opportunities that encourage teamwork and leadership skills.
+                Our school has a strong reputation for its academic programs and
+                supportive learning environment, while offering a variety of
+                advanced placement (AP) courses. The school offers many
+                extracurriculars, including athletics, clubs, and community
+                service opportunities that encourage teamwork and leadership
+                skills.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
@@ -41,8 +47,12 @@ export function SchoolAbout() {
                         <GraduationCap className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="text-white font-medium">Academic Excellence</h3>
-                        <p className="text-gray-400 text-sm">Top-tier education with advanced programs</p>
+                        <h3 className="text-white font-medium">
+                          Academic Excellence
+                        </h3>
+                        <p className="text-gray-400 text-sm">
+                          Top-tier education with advanced programs
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -55,8 +65,12 @@ export function SchoolAbout() {
                         <Book className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="text-white font-medium">Tech Programs</h3>
-                        <p className="text-gray-400 text-sm">Specialized STEM and coding courses</p>
+                        <h3 className="text-white font-medium">
+                          Tech Programs
+                        </h3>
+                        <p className="text-gray-400 text-sm">
+                          Specialized STEM and coding courses
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -70,7 +84,9 @@ export function SchoolAbout() {
                       </div>
                       <div>
                         <h3 className="text-white font-medium">Achievements</h3>
-                        <p className="text-gray-400 text-sm">Award-winning programs and competitions</p>
+                        <p className="text-gray-400 text-sm">
+                          Award-winning programs and competitions
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -84,7 +100,9 @@ export function SchoolAbout() {
                       </div>
                       <div>
                         <h3 className="text-white font-medium">Community</h3>
-                        <p className="text-gray-400 text-sm">Supportive and inclusive environment</p>
+                        <p className="text-gray-400 text-sm">
+                          Supportive and inclusive environment
+                        </p>
                       </div>
                     </div>
                   </CardContent>

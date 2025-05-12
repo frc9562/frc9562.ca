@@ -11,12 +11,13 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Royal Robotics</h3>
             <p className="text-sm text-gray-400">
-              Team 9562 - Bishop Reding Catholic Secondary School's FIRST Robotics team dedicated
-              to fostering innovation, teamwork, and STEM education.
+              Team 9562 - Bishop Reding Catholic Secondary School's FIRST
+              Robotics team dedicated to fostering innovation, teamwork, and
+              STEM education.
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/frc9562_hcdsb"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-red-500 transition-colors"
@@ -25,7 +26,7 @@ export function Footer() {
                 <span className="sr-only">Instagram</span>
               </a>
               <a
-                href="mailto:Royalrobotics9562@hotmail.com"
+                href="mailto:royalrobotics9562@hotmail.com"
                 className="text-gray-400 hover:text-red-500 transition-colors"
               >
                 <Mail size={20} />
@@ -43,11 +44,15 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                <span className="text-sm">School Number: (905) - 875 - 0124</span>
+                <span className="text-sm">
+                  School Number: (905) - 875 - 0124
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                <span className="text-sm">1120 Main St E, Milton, ON L9T 6H7</span>
+                <span className="text-sm">
+                  1120 Main St E, Milton, ON L9T 6H7
+                </span>
               </li>
             </ul>
           </div>
@@ -56,22 +61,34 @@ export function Footer() {
             <h3 className="text-xl font-bold">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-sm text-gray-400 hover:text-red-500 transition-colors">
+                <Link
+                  href="/"
+                  className="text-sm text-gray-400 hover:text-red-500 transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm text-gray-400 hover:text-red-500 transition-colors">
+                <Link
+                  href="/about"
+                  className="text-sm text-gray-400 hover:text-red-500 transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/donate" className="text-sm text-gray-400 hover:text-red-500 transition-colors">
+                <Link
+                  href="/donate"
+                  className="text-sm text-gray-400 hover:text-red-500 transition-colors"
+                >
                   Donate
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-gray-400 hover:text-red-500 transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-sm text-gray-400 hover:text-red-500 transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -81,7 +98,11 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button size="sm" variant="outline" className="text-red-500 border-red-500 hover:bg-red-950">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="text-red-500 border-red-500 hover:bg-red-950"
+                  >
                     Donate Now
                   </Button>
                 </a>
@@ -94,7 +115,8 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} by BR Robotics Team. All rights reserved.
+            © {new Date().getFullYear()} by BR Robotics Team. All rights
+            reserved.
           </p>
           <p className="text-xs text-gray-500 mt-2 md:mt-0">
             FIRST Robotics Competition Team 9562

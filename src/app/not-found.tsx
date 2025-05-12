@@ -8,11 +8,15 @@ export default function NotFound() {
   return (
     <main className="royal-gradient min-h-screen">
       <Navbar />
-
       <div className="container mx-auto px-4 pt-32 pb-20 flex flex-col items-center justify-center text-center">
-        <h3 className="text-xl text-red-500 font-medium mb-4 animate-fade-in">OOPS! PAGE NOT FOUND</h3>
+        <h3 className="text-xl text-red-500 font-medium mb-4 animate-fade-in">
+          OOPS! PAGE NOT FOUND
+        </h3>
 
-        <div className="relative animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <div
+          className="relative animate-fade-in"
+          style={{ animationDelay: "0.1s" }}
+        >
           <h1 className="text-[15rem] md:text-[20rem] font-black text-white opacity-10 leading-none select-none">
             404
           </h1>
@@ -22,8 +26,8 @@ export default function NotFound() {
                 We are sorry, but the page you requested was not found
               </h2>
               <p className="text-gray-300 mb-6">
-                The page you are looking for might have been removed, had its name changed,
-                or is temporarily unavailable.
+                The page you are looking for might have been removed, had its
+                name changed, or is temporarily unavailable.
               </p>
               <Link href="/">
                 <Button className="bg-red-600 hover:bg-red-700">
@@ -34,7 +38,6 @@ export default function NotFound() {
           </div>
         </div>
       </div>
-
       <Footer />
     </main>
   );
