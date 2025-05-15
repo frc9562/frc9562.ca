@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Github, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
@@ -11,9 +10,8 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Royal Robotics</h3>
             <p className="text-sm text-gray-400">
-              Team 9562 - Bishop Reding Catholic Secondary School's FIRST
-              Robotics team dedicated to fostering innovation, teamwork, and
-              STEM education.
+              Team 9562 - Bishop Reding Secondary School's FIRST Robotics team
+              dedicated to fostering innovation, teamwork, and STEM education.
             </p>
             <div className="flex space-x-4">
               <a
@@ -26,11 +24,22 @@ export function Footer() {
                 <span className="sr-only">Instagram</span>
               </a>
               <a
-                href="mailto:royalrobotics9562@hotmail.com"
+                href="https://www.youtube.com/@frc9562_hcdsb"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-red-500 transition-colors"
               >
-                <Mail size={20} />
-                <span className="sr-only">Email</span>
+                <Youtube size={20} />
+                <span className="sr-only">YouTube</span>
+              </a>
+              <a
+                href="https://github.com/frc9562"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <Github size={20} />
+                <span className="sr-only">GitHub</span>
               </a>
             </div>
           </div>
@@ -40,13 +49,21 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <Mail className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Royalrobotics9562@hotmail.com</span>
+                <a
+                  href="mailto:royalrobotics9562@hotmail.com"
+                  className="text-sm hover:underline"
+                >
+                  royalrobotics9562@hotmail.com
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                <span className="text-sm">
-                  School Number: (905) - 875 - 0124
-                </span>
+                <a
+                  href="tel:+1 (905) 875-0124"
+                  className="text-sm hover:underline"
+                >
+                  +1 (905) 875-0124
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
@@ -92,19 +109,14 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
-              <li className="pt-2">
+              <li>
                 <a
                   href="https://hcdsb.schoolcashonline.com/Fee/Index"
+                  className="text-sm text-gray-400 hover:text-red-500 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="text-red-500 border-red-500 hover:bg-red-950"
-                  >
-                    Donate Now
-                  </Button>
+                  Donate
                 </a>
               </li>
             </ul>
