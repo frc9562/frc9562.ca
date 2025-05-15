@@ -50,18 +50,15 @@ export function Navbar() {
     >
       <div className="container flex items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <div>
-            <span className="text-xl md:text-lg lg:text-xl font-bold text-white whitespace-nowrap">
-              <span className="text-red-600">ROYAL</span>ROBOTICS
-            </span>
-            <span className="hidden md:inline-block text-xs lg:text-sm text-red-500 font-medium whitespace-nowrap">
-              TEAM 9562
-            </span>
-          </div>
+          <img
+            src="/images/branding/logo-full.png"
+            alt="Royal Robotics Logo"
+            className="h-12"
+          />
         </Link>
 
         {/* Desktop Navigation - Only visible on large screens */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-2">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
