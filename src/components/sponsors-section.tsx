@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 interface Sponsor {
   name: string;
@@ -17,7 +16,7 @@ const SponsorCard = ({
   ribbonColor,
   ribbonText,
   labelBgColor,
-  labelText
+  labelText,
 }: {
   sponsor: Sponsor;
   ribbonColor: string;
@@ -34,7 +33,9 @@ const SponsorCard = ({
     >
       <div className="absolute inset-0 bg-[#111] rounded-sm shadow-md overflow-hidden">
         {/* Corner ribbon */}
-        <div className={`absolute -top-2 -right-12 w-36 transform rotate-45 py-1 text-xs font-bold bg-gradient-to-r ${ribbonColor} text-black z-10`}>
+        <div
+          className={`absolute -top-2 -right-12 w-36 transform rotate-45 py-1 text-xs font-bold bg-gradient-to-r ${ribbonColor} text-black z-10`}
+        >
           {ribbonText}
         </div>
 
@@ -53,9 +54,13 @@ const SponsorCard = ({
 
         {/* Name and tier label */}
         <div className="text-center">
-          <h4 className="text-white text-base font-medium mb-1">{sponsor.name}</h4>
+          <h4 className="text-white text-base font-medium mb-1">
+            {sponsor.name}
+          </h4>
           <div className="mx-auto">
-            <span className={`inline-block px-4 py-1 text-sm text-white ${labelBgColor} rounded-sm`}>
+            <span
+              className={`inline-block px-4 py-1 text-sm text-white ${labelBgColor} rounded-sm`}
+            >
               {labelText}
             </span>
           </div>
@@ -99,7 +104,7 @@ export function SponsorsSection() {
       url: "#",
     },
     {
-      name: "MANGA Machining",
+      name: "MAGNA Machining",
       logo: "/images/sponsors/manga_logo.png",
       tier: "bronze",
       url: "#",
@@ -113,46 +118,61 @@ export function SponsorsSection() {
   ];
 
   // Filter sponsors by tier
-  const platinumSponsors = sponsors.filter(s => s.tier === "platinum");
-  const goldSponsors = sponsors.filter(s => s.tier === "gold");
-  const silverSponsors = sponsors.filter(s => s.tier === "silver");
-  const bronzeSponsors = sponsors.filter(s => s.tier === "bronze");
-  
+  const platinumSponsors = sponsors.filter((s) => s.tier === "platinum");
+  const goldSponsors = sponsors.filter((s) => s.tier === "gold");
+  const silverSponsors = sponsors.filter((s) => s.tier === "silver");
+  const bronzeSponsors = sponsors.filter((s) => s.tier === "bronze");
+
   // Helper function to get ribbon text for a tier
   const getRibbonText = (tier: string) => {
-    switch(tier) {
-      case 'platinum': return 'PLATINUM';
-      case 'gold': return 'GOLD';
-      case 'silver': return 'SILVER';
-      case 'bronze': return 'BRONZE';
-      default: return tier.toUpperCase();
+    switch (tier) {
+      case "platinum":
+        return "PLATINUM";
+      case "gold":
+        return "GOLD";
+      case "silver":
+        return "SILVER";
+      case "bronze":
+        return "BRONZE";
+      default:
+        return tier.toUpperCase();
     }
   };
-  
+
   // Helper function to get label text for a tier
   const getLabelText = (tier: string) => {
     return `${tier.charAt(0).toUpperCase() + tier.slice(1)} Sponsors`;
   };
-  
+
   // Helper function to get ribbon color based on tier
   const getRibbonColor = (tier: string) => {
-    switch(tier) {
-      case 'platinum': return 'from-purple-200 to-pink-200';
-      case 'gold': return 'from-yellow-500 to-yellow-300';
-      case 'silver': return 'from-gray-400 to-gray-200';
-      case 'bronze': return 'from-amber-700 to-amber-500';
-      default: return 'from-gray-500 to-gray-300';
+    switch (tier) {
+      case "platinum":
+        return "from-purple-200 to-pink-200";
+      case "gold":
+        return "from-yellow-500 to-yellow-300";
+      case "silver":
+        return "from-gray-400 to-gray-200";
+      case "bronze":
+        return "from-amber-700 to-amber-500";
+      default:
+        return "from-gray-500 to-gray-300";
     }
   };
-  
+
   // Helper function to get label background color based on tier
   const getLabelBgColor = (tier: string) => {
-    switch(tier) {
-      case 'platinum': return 'bg-red-900';
-      case 'gold': return 'bg-yellow-800';
-      case 'silver': return 'bg-gray-700';
-      case 'bronze': return 'bg-amber-800';
-      default: return 'bg-gray-700';
+    switch (tier) {
+      case "platinum":
+        return "bg-red-900";
+      case "gold":
+        return "bg-yellow-800";
+      case "silver":
+        return "bg-gray-700";
+      case "bronze":
+        return "bg-amber-800";
+      default:
+        return "bg-gray-700";
     }
   };
 
@@ -163,16 +183,22 @@ export function SponsorsSection() {
           <h2 className="text-3xl font-bold text-white mb-2">Our Sponsors</h2>
           <div className="w-16 h-1 bg-red-600 mx-auto mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm">
-            We&apos;re grateful to our sponsors for their generous support that enables us to build innovative robots
-            and participate in competitions. Their contributions make our journey possible.
+            We&apos;re grateful to our sponsors for their generous support that
+            enables us to build innovative robots and participate in
+            competitions. Their contributions make our journey possible.
           </p>
         </div>
 
         {/* Separate client component for rendering sponsor cards */}
         <div className="flex flex-wrap justify-center gap-8">
           {/* Render all sponsors in order of tier importance */}
-          {[...platinumSponsors, ...goldSponsors, ...silverSponsors, ...bronzeSponsors].map((sponsor) => (
-            <SponsorCard 
+          {[
+            ...platinumSponsors,
+            ...goldSponsors,
+            ...silverSponsors,
+            ...bronzeSponsors,
+          ].map((sponsor) => (
+            <SponsorCard
               key={sponsor.name}
               sponsor={sponsor}
               ribbonColor={getRibbonColor(sponsor.tier)}
@@ -185,8 +211,8 @@ export function SponsorsSection() {
 
         <div className="text-center mt-16">
           <p className="text-gray-400 text-sm mb-4">
-            Interested in becoming a sponsor? Your support helps students develop STEM skills and build
-            competition-ready robots.
+            Interested in becoming a sponsor? Your support helps students
+            develop STEM skills and build competition-ready robots.
           </p>
           <a href="/donate">
             <Button className="bg-red-600 hover:bg-red-700 text-white rounded-sm px-5 py-1.5 text-sm">

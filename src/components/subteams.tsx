@@ -61,7 +61,7 @@ export function Subteams() {
                 <Link href="/about">
                   <Button
                     variant="outline"
-                    className="border-red-500 text-red-500 hover:bg-red-950 w-full sm:w-auto"
+                    className="hover:bg-accent w-full sm:w-auto"
                   >
                     Learn More
                   </Button>

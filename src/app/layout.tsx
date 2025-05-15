@@ -5,7 +5,7 @@ import { ClientBody } from "./ClientBody";
 export const metadata: Metadata = {
   title: "Royal Robotics | Team 9562",
   description:
-    "Bishop Reding Catholic Secondary School's FIRST Robotics Competition Team 9562",
+    "Bishop Reding Secondary School's FIRST Robotics Competition Team 9562",
   keywords: [
     "robotics",
     "FIRST Robotics",
@@ -45,7 +45,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="96x96" href="/apple-icon.png" />
       </head>
-      <body className="min-h-screen h-screen bg-black text-white antialiased overflow-x-hidden overflow-y-auto w-full">
+      <body className="bg-black text-white antialiased overflow-x-hidden overflow-y-auto w-full">
         {/* Background Logo - Direct embed with base64 */}
         <div className="fixed inset-0 z-[-2] pointer-events-none">
           <div
@@ -53,7 +53,7 @@ export default function RootLayout({
             style={{
               backgroundImage: `url(data:image/png;base64,${logoBase64})`,
             }}
-          ></div>
+          />
         </div>
         <ClientBody>{children}</ClientBody>
       </body>
