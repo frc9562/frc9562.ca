@@ -43,10 +43,7 @@ export function Hero() {
                 </Button>
               </Link>
               <Link href="/donate">
-                <Button
-                  variant="outline"
-                  className="border-red-500 text-red-500 hover:bg-red-900/20"
-                >
+                <Button variant="outline" className="hover:bg-accent">
                   Support Our Team
                 </Button>
               </Link>
@@ -58,7 +55,7 @@ export function Hero() {
             style={{ animationDelay: "0.4s" }}
           >
             <div className="relative">
-              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border border-red-900/20 animate-pulse-slow">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border border-red-900/20">
                 <img
                   src="/images/home_page/hero_img.png"
                   alt="FIRST Robotics Competition"
