@@ -2,9 +2,13 @@ import Link from "next/link";
 import { Github, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
-export function Footer() {
+interface FooterProps {
+  className?: string;
+}
+
+export function Footer({ className = "" }: FooterProps) {
   return (
-    <footer className="bg-black text-white pt-12 pb-6">
+    <footer className={`bg-black text-white pt-12 pb-6 ${className}`}>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
@@ -59,10 +63,10 @@ export function Footer() {
               <li className="flex items-start gap-2">
                 <Phone className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
                 <a
-                  href="tel:+1 (905) 875-0124"
+                  href="tel:+19058750124"
                   className="text-sm hover:underline"
                 >
-                  +1 (905) 875-0124
+                  (905) 875-0124
                 </a>
               </li>
               <li className="flex items-start gap-2">
@@ -110,14 +114,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://hcdsb.schoolcashonline.com/Fee/Index"
+                <Link
+                  href="/mentor"
                   className="text-sm text-gray-400 hover:text-red-500 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
-                  Donate
-                </a>
+                  Become a Mentor
+                </Link>
               </li>
             </ul>
           </div>

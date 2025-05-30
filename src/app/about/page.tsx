@@ -10,10 +10,10 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 royal-gradient">
+      <section className="pt-28 pb-0 royal-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 animate-fade-in">
               About Royal Robotics
             </h1>
             <p
@@ -30,7 +30,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 bg-black" id="mission">
+      <section className="pt-0 pb-8 bg-black" id="mission">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
@@ -74,7 +74,7 @@ export default function AboutPage() {
       <TeamSection />
 
       {/* Robot Features */}
-      <section className="py-16 bg-gray-950" id="robot-features">
+      <section className="py-12 bg-gray-950" id="robot-features">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4 animate-fade-in">
@@ -175,7 +175,7 @@ export default function AboutPage() {
       </section>
 
       {/* Awards Section */}
-      <section className="py-16 bg-black" id="awards">
+      <section className="py-12 bg-black" id="awards">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4 animate-fade-in">
@@ -300,7 +300,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer className="mt-0" />
     </main>
   );
 }

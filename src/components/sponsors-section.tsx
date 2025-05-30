@@ -13,8 +13,6 @@ interface Sponsor {
 // Separate client component for handling image errors
 const SponsorCard = ({
   sponsor,
-  ribbonColor,
-  ribbonText,
   labelBgColor,
   labelText,
 }: {
@@ -29,22 +27,15 @@ const SponsorCard = ({
       href={sponsor.url || "#"}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-56 h-64 relative mb-4"
+      className="w-64 h-60 relative mb-6 group"
     >
-      <div className="absolute inset-0 bg-[#111] rounded-sm shadow-md overflow-hidden">
-        {/* Corner ribbon */}
-        <div
-          className={`absolute -top-2 -right-12 w-36 transform rotate-45 py-1 text-xs font-bold bg-gradient-to-r ${ribbonColor} text-black z-10`}
-        >
-          {ribbonText}
-        </div>
-
-        {/* Logo container */}
-        <div className="flex items-center justify-center h-44 p-6 py-8">
+      <div className="absolute inset-0 bg-[#1a1a1a] rounded-md shadow-lg overflow-hidden border border-gray-700 transition-all duration-300 group-hover:border-red-500 group-hover:shadow-red-900/30">
+        {/* Logo container with improved visibility */}
+        <div className="flex items-center justify-center h-40 p-4 bg-white/5 backdrop-blur-sm">
           <img
             src={sponsor.logo}
             alt={`${sponsor.name} logo`}
-            className="max-w-full max-h-32 object-contain"
+            className="max-w-full max-h-28 object-contain transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = "https://via.placeholder.com/150x80?text=Logo";
@@ -53,13 +44,13 @@ const SponsorCard = ({
         </div>
 
         {/* Name and tier label */}
-        <div className="text-center">
-          <h4 className="text-white text-base font-medium mb-1">
+        <div className="text-center p-3 bg-gradient-to-b from-transparent to-black/60">
+          <h4 className="text-white text-base font-semibold mb-2">
             {sponsor.name}
           </h4>
           <div className="mx-auto">
             <span
-              className={`inline-block px-4 py-1 text-sm text-white ${labelBgColor} rounded-sm`}
+              className={`inline-block px-4 py-1 text-xs font-medium text-white ${labelBgColor} rounded-full transition-colors duration-300 shadow-sm`}
             >
               {labelText}
             </span>
@@ -86,28 +77,34 @@ export function SponsorsSection() {
       url: "https://secondary.hcdsb.org/bishopreding/",
     },
     {
+      name: "Modatek Systems",
+      logo: "/images/sponsors/modatek_systems_logo.png",
+      tier: "platinum",
+      url: "#",
+    },
+    {
+      name: "MAGNA Machining",
+      logo: "/images/sponsors/manga_logo.png",
+      tier: "platinum",
+      url: "#",
+    },
+    {
       name: "Gene Haas Foundation",
       logo: "/images/sponsors/gene_haas_logo.png",
       tier: "gold",
       url: "https://www.haascnc.com/community/gene-haas-foundation.html",
     },
     {
+      name: "Samsung",
+      logo: "/images/sponsors/samsung_logo.png",
+      tier: "gold",
+      url: "#",
+    },
+    {
       name: "Altair",
       logo: "/images/sponsors/altair_logo.png",
       tier: "silver",
       url: "https://www.altair.com/",
-    },
-    {
-      name: "Modatek Systems",
-      logo: "/images/sponsors/modatek_systems_logo.png",
-      tier: "silver",
-      url: "#",
-    },
-    {
-      name: "MAGNA Machining",
-      logo: "/images/sponsors/manga_logo.png",
-      tier: "bronze",
-      url: "#",
     },
     {
       name: "Sable Systems",
@@ -123,21 +120,7 @@ export function SponsorsSection() {
   const silverSponsors = sponsors.filter((s) => s.tier === "silver");
   const bronzeSponsors = sponsors.filter((s) => s.tier === "bronze");
 
-  // Helper function to get ribbon text for a tier
-  const getRibbonText = (tier: string) => {
-    switch (tier) {
-      case "platinum":
-        return "PLATINUM";
-      case "gold":
-        return "GOLD";
-      case "silver":
-        return "SILVER";
-      case "bronze":
-        return "BRONZE";
-      default:
-        return tier.toUpperCase();
-    }
-  };
+  // No longer needed since we removed ribbons
 
   // Helper function to get label text for a tier
   const getLabelText = (tier: string) => {
@@ -189,25 +172,108 @@ export function SponsorsSection() {
           </p>
         </div>
 
-        {/* Separate client component for rendering sponsor cards */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {/* Render all sponsors in order of tier importance */}
-          {[
-            ...platinumSponsors,
-            ...goldSponsors,
-            ...silverSponsors,
-            ...bronzeSponsors,
-          ].map((sponsor) => (
-            <SponsorCard
-              key={sponsor.name}
-              sponsor={sponsor}
-              ribbonColor={getRibbonColor(sponsor.tier)}
-              ribbonText={getRibbonText(sponsor.tier)}
-              labelBgColor={getLabelBgColor(sponsor.tier)}
-              labelText={getLabelText(sponsor.tier)}
-            />
-          ))}
+        {/* Tier descriptions */}
+        <div className="flex justify-center mb-10 flex-wrap gap-4 text-xs">
+          <div className="bg-red-900/20 border border-red-900/30 px-3 py-1 rounded-full text-white">
+            Platinum: $7,500+
+          </div>
+          <div className="bg-yellow-900/20 border border-yellow-500/30 px-3 py-1 rounded-full text-white">
+            Gold: $2,500+
+          </div>
+          <div className="bg-gray-700/20 border border-gray-500/30 px-3 py-1 rounded-full text-white">
+            Silver: $1,000+
+          </div>
+          <div className="bg-amber-900/20 border border-amber-700/30 px-3 py-1 rounded-full text-white">
+            Bronze: $500+
+          </div>
+          <div className="bg-blue-900/20 border border-blue-300/30 px-3 py-1 rounded-full text-white">
+            Diamond: $5,000+
+          </div>
         </div>
+
+        {/* Platinum Tier */}
+        {platinumSponsors.length > 0 && (
+          <div className="mb-14">
+            <h3 className="text-2xl font-bold text-white mb-8 text-center relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:translate-x-[-50%] after:w-40 after:h-1 after:bg-red-600">
+              Platinum Sponsors
+            </h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              {platinumSponsors.map((sponsor) => (
+                <SponsorCard
+                  key={sponsor.name}
+                  sponsor={sponsor}
+                  ribbonColor="" 
+                  ribbonText=""
+                  labelBgColor={getLabelBgColor(sponsor.tier)}
+                  labelText={getLabelText(sponsor.tier)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Gold Tier */}
+        {goldSponsors.length > 0 && (
+          <div className="mb-14">
+            <h3 className="text-2xl font-bold text-white mb-8 text-center relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:translate-x-[-50%] after:w-40 after:h-1 after:bg-yellow-600">
+              Gold Sponsors
+            </h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              {goldSponsors.map((sponsor) => (
+                <SponsorCard
+                  key={sponsor.name}
+                  sponsor={sponsor}
+                  ribbonColor=""
+                  ribbonText=""
+                  labelBgColor={getLabelBgColor(sponsor.tier)}
+                  labelText={getLabelText(sponsor.tier)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        
+        {/* Silver Tier */}
+        {silverSponsors.length > 0 && (
+          <div className="mb-14">
+            <h3 className="text-2xl font-bold text-white mb-8 text-center relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:translate-x-[-50%] after:w-40 after:h-1 after:bg-gray-400">
+              Silver Sponsors
+            </h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              {silverSponsors.map((sponsor) => (
+                <SponsorCard
+                  key={sponsor.name}
+                  sponsor={sponsor}
+                  ribbonColor=""
+                  ribbonText=""
+                  labelBgColor={getLabelBgColor(sponsor.tier)}
+                  labelText={getLabelText(sponsor.tier)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        
+        {/* Bronze Tier */}
+        {bronzeSponsors.length > 0 && (
+          <div className="mb-14">
+            <h3 className="text-2xl font-bold text-white mb-8 text-center relative after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:translate-x-[-50%] after:w-40 after:h-1 after:bg-amber-700">
+              Bronze Sponsors
+            </h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              {bronzeSponsors.map((sponsor) => (
+                <SponsorCard
+                  key={sponsor.name}
+                  sponsor={sponsor}
+                  ribbonColor=""
+                  ribbonText=""
+                  labelBgColor={getLabelBgColor(sponsor.tier)}
+                  labelText={getLabelText(sponsor.tier)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="text-center mt-16">
           <p className="text-gray-400 text-sm mb-4">

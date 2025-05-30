@@ -75,147 +75,182 @@ const teamMembers: TeamMember[] = [
 ];
 
 export function TeamSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(3);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
-
-  // Calculate visible members
-  const getVisibleMembers = (index: number) => {
-    const result = [];
-    for (let i = 0; i < 3; i++) {
-      const memberIndex = (index + i) % teamMembers.length;
-      result.push(teamMembers[memberIndex]);
+  
+  // Calculate total slides needed for the carousel
+  const totalSlides = teamMembers.length;
+  
+  // Handle responsiveness
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // Ensure current index is valid when slidesToShow changes
+  useEffect(() => {
+    if (currentIndex > totalSlides - slidesToShow) {
+      setCurrentIndex(Math.max(0, totalSlides - slidesToShow));
     }
-    return result;
-  };
-
-  const visibleMembers = getVisibleMembers(activeIndex);
-
-  const handleTransitionEnd = () => {
-    setIsAnimating(false);
-    if (carouselRef.current) {
-      carouselRef.current.classList.remove('transitioning');
-      carouselRef.current.classList.remove('slide-left');
-      carouselRef.current.classList.remove('slide-right');
-    }
-  };
-
-  const nextSlide = () => {
-    if (isAnimating) return;
-
-    setIsAnimating(true);
-    setSlideDirection('right');
-
-    if (carouselRef.current) {
-      carouselRef.current.classList.add('transitioning', 'slide-left');
-    }
-
-    setTimeout(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % teamMembers.length);
-    }, 300); // Half of transition time
-  };
-
-  const prevSlide = () => {
-    if (isAnimating) return;
-
-    setIsAnimating(true);
-    setSlideDirection('left');
-
-    if (carouselRef.current) {
-      carouselRef.current.classList.add('transitioning', 'slide-right');
-    }
-
-    setTimeout(() => {
-      setActiveIndex((prevIndex) => (prevIndex - 1 + teamMembers.length) % teamMembers.length);
-    }, 300); // Half of transition time
-  };
-
+  }, [slidesToShow, currentIndex, totalSlides]);
+  
+  // Handle navigation
   const goToSlide = (index: number) => {
-    if (isAnimating || index === activeIndex) return;
-
-    const direction = index > activeIndex ? 'right' : 'left';
-    setSlideDirection(direction);
-    setIsAnimating(true);
-
-    if (carouselRef.current) {
-      carouselRef.current.classList.add('transitioning');
-      carouselRef.current.classList.add(direction === 'right' ? 'slide-left' : 'slide-right');
+    // Ensure the index is within bounds
+    const boundedIndex = Math.min(Math.max(0, index), totalSlides - slidesToShow);
+    setCurrentIndex(boundedIndex);
+  };
+  
+  const nextSlide = () => {
+    const nextIndex = currentIndex + 1;
+    if (nextIndex > totalSlides - slidesToShow) {
+      // Loop back to start with smooth animation
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(nextIndex);
     }
+  };
+  
+  const prevSlide = () => {
+    const prevIndex = currentIndex - 1;
+    if (prevIndex < 0) {
+      // Loop to end with smooth animation
+      setCurrentIndex(Math.max(0, totalSlides - slidesToShow));
+    } else {
+      setCurrentIndex(prevIndex);
+    }
+  };
+  
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swipe left, go next
+      nextSlide();
+    }
+    
+    if (touchStart - touchEnd < -75) {
+      // Swipe right, go previous
+      prevSlide();
+    }
+  };
 
-    setTimeout(() => {
-      setActiveIndex(index);
-    }, 300); // Half of transition time
+  // Calculate the number of slides to create
+  const carouselSlides = [];
+  for (let i = 0; i < teamMembers.length; i++) {
+    carouselSlides.push(teamMembers[i]);
+  }
+
+  // Calculate transform value for current position
+  const calculateTransform = () => {
+    // Adjust for both gaps and margins in transform calculation
+    const marginAdjustment = slidesToShow === 1 ? 2 : 1; // % for left+right margins
+    const gapAdjustment = slidesToShow === 1 ? 0 : slidesToShow === 2 ? 4 : 5;
+    const slideWidth = slidesToShow === 1 ? 96 : slidesToShow === 2 ? 48 : 31;
+    
+    // Calculate total width including gaps and margins
+    const totalWidthPerSlide = slideWidth + gapAdjustment + marginAdjustment;
+    return `translateX(-${currentIndex * totalWidthPerSlide}%)`;
   };
 
   return (
-    <section className="py-20 bg-black" id="team">
+    <section className="py-10 bg-gray-950">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-white mb-4 animate-fade-in">Meet Our Team</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            Our dedicated team members work tirelessly to design, build, and program our competition robots while promoting
-            STEM education and teamwork.
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-white mb-3">Meet Our Team</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Our dedicated team members work tirelessly to design, build, and program our competition
+            robots while promoting STEM education and teamwork.
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative carousel-wrapper">
           {/* Navigation Buttons */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+          <div className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-10">
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full bg-black/40 border-red-900/30 text-white hover:bg-black/60 hover:text-red-500"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 border-red-900/30 text-white hover:bg-black/60 hover:text-red-500"
               onClick={prevSlide}
-              disabled={isAnimating}
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
             </Button>
           </div>
 
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+          <div className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-10">
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full bg-black/40 border-red-900/30 text-white hover:bg-black/60 hover:text-red-500"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/40 border-red-900/30 text-white hover:bg-black/60 hover:text-red-500"
               onClick={nextSlide}
-              disabled={isAnimating}
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
             </Button>
           </div>
 
-          {/* Team Member Cards Container */}
-          <div
+          {/* Carousel Track */}
+          <div 
+            className="carousel-container overflow-hidden py-2 sm:py-4 md:py-6 px-3 sm:px-4"
             ref={carouselRef}
-            className="carousel-container py-8 px-12 overflow-hidden"
-            onTransitionEnd={handleTransitionEnd}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            <div className="flex flex-wrap justify-center gap-6">
-              {visibleMembers.map((member, index) => (
+            <div 
+              className="carousel-track flex transition-transform duration-500 ease-out gap-2 sm:gap-3 md:gap-4"
+              style={{ transform: calculateTransform() }}
+            >
+              {carouselSlides.map((member) => (
                 <div
-                  key={`${member.id}-${activeIndex}-${index}`}
-                  className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)]"
+                  key={member.id}
+                  className="carousel-slide flex-shrink-0" 
+                  style={{ 
+                    width: slidesToShow === 1 ? 'calc(100% - 1rem)' : slidesToShow === 2 ? 'calc(50% - 0.5rem)' : 'calc(33.333% - 0.5rem)',
+                    marginLeft: slidesToShow === 1 ? '0.5rem' : '0.25rem',
+                    marginRight: slidesToShow === 1 ? '0.5rem' : '0.25rem'
+                  }}
                 >
-                  <Card className="overflow-hidden bg-gray-900 border-red-900/20 h-full flex flex-col transition-transform hover:scale-105 duration-300">
-                    <div className="relative h-64 overflow-hidden">
+                  <Card className="h-full bg-gray-900 border-red-900/20 overflow-hidden flex flex-col hover:scale-[1.02] transition-transform duration-300 max-w-sm mx-auto">
+                    <div className="relative h-44 sm:h-48 md:h-52 lg:h-56 overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.src = "https://via.placeholder.com/400x300?text=Team+Member";
                         }}
+                        loading="lazy"
                       />
-                      <div className="absolute bottom-0 left-0 p-4 z-20">
-                        <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                        <p className="text-red-500 font-medium">{member.role}</p>
+                      <div className="absolute bottom-0 left-0 p-3 sm:p-4 z-20">
+                        <h3 className="text-lg sm:text-xl font-bold text-white line-clamp-1">{member.name}</h3>
+                        <p className="text-red-500 text-sm sm:text-base font-medium">{member.role}</p>
                       </div>
                     </div>
-                    <CardContent className="flex-grow flex flex-col justify-between p-6 bg-gradient-to-b from-gray-900 to-black">
-                      <p className="text-gray-300 mb-4">{member.description}</p>
+                    <CardContent className="flex-grow p-4 sm:p-5 bg-gradient-to-b from-gray-900 to-black">
+                      <p className="text-gray-300 text-sm sm:text-base line-clamp-3 sm:line-clamp-4">{member.description}</p>
                     </CardContent>
                   </Card>
                 </div>
@@ -225,20 +260,18 @@ export function TeamSection() {
 
           {/* Dots Indicator */}
           <div className="flex justify-center mt-6 gap-2">
-            {teamMembers.map((_, index) => (
+            {Array.from({ length: totalSlides - slidesToShow + 1 }).map((_, index) => (
               <button
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all ${index === activeIndex ? "bg-red-600 w-6" : "bg-gray-600"
-                  }`}
+                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex ? "bg-red-600 w-6" : "bg-gray-600"}`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
-                disabled={isAnimating}
               />
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-12 animate-slide-in-up" style={{ animationDelay: "0.5s" }}>
+        <div className="text-center mt-12">
           <h3 className="text-2xl font-bold text-white mb-4">We're Recruiting New Members!</h3>
           <p className="text-gray-400 max-w-2xl mx-auto mb-6">
             Want to be part of the Royal Robotics Team? If yes, you are in the right place!

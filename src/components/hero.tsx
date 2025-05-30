@@ -43,7 +43,7 @@ export function Hero() {
                 </Button>
               </Link>
               <Link href="/donate">
-                <Button variant="outline" className="hover:bg-accent">
+                <Button variant="outline" className="bg-white text-black hover:bg-accent hover:text-red-600">
                   Support Our Team
                 </Button>
               </Link>
@@ -65,18 +65,18 @@ export function Hero() {
 
               {/* Feature Cards */}
               <div
-                className="absolute -bottom-8 -left-8 bg-black/80 backdrop-blur-sm p-4 rounded-lg border border-red-900/30 shadow-lg animate-slide-in-up"
+                className="absolute -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 bg-black/80 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-red-900/30 shadow-lg animate-slide-in-up scale-75 sm:scale-90 md:scale-100 origin-bottom-left"
                 style={{ animationDelay: "0.6s" }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-red-600 rounded-full">
-                    <Wrench className="h-5 w-5 text-white" />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="p-1.5 sm:p-2 bg-red-600 rounded-full">
+                    <Wrench className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-white font-medium">
+                    <h3 className="text-white text-sm sm:text-base font-medium">
                       Engineering Excellence
                     </h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-400 text-xs sm:text-sm">
                       Building innovative robots
                     </p>
                   </div>
@@ -84,18 +84,18 @@ export function Hero() {
               </div>
 
               <div
-                className="absolute -top-8 -right-8 bg-black/80 backdrop-blur-sm p-4 rounded-lg border border-red-900/30 shadow-lg animate-slide-in-up"
+                className="absolute -top-4 sm:-top-8 -right-4 sm:-right-8 bg-black/80 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-red-900/30 shadow-lg animate-slide-in-up scale-75 sm:scale-90 md:scale-100 origin-top-right"
                 style={{ animationDelay: "0.7s" }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-red-600 rounded-full">
-                    <Users className="h-5 w-5 text-white" />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="p-1.5 sm:p-2 bg-red-600 rounded-full">
+                    <Users className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-white font-medium">
+                    <h3 className="text-white text-sm sm:text-base font-medium">
                       Team Collaboration
                     </h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-400 text-xs sm:text-sm">
                       Working together to succeed
                     </p>
                   </div>
@@ -103,7 +103,7 @@ export function Hero() {
               </div>
 
               <div
-                className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 bg-black/80 backdrop-blur-sm p-4 rounded-lg border border-red-900/30 shadow-lg hidden lg:block animate-slide-in-up"
+                className="absolute top-1/2 right-0 translate-x-1/3 sm:translate-x-1/2 -translate-y-1/2 bg-black/80 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-red-900/30 shadow-lg hidden md:block animate-slide-in-up scale-75 sm:scale-90 md:scale-100 origin-center"
                 style={{ animationDelay: "0.8s" }}
               >
                 <div className="flex items-center gap-3">

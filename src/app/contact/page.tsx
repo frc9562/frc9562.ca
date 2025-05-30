@@ -123,12 +123,12 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-white">
-                          First Name
+                          First Name <span className="text-red-500">*</span>
                         </label>
                         <Input
                           id="firstName"
                           placeholder="Enter your first name"
-                          className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-400"
+                          className="bg-white/20 border-red-900/20 text-white placeholder:text-white/70"
                           value={formData.firstName}
                           onChange={handleChange}
                           required
@@ -137,12 +137,12 @@ export default function ContactPage() {
 
                       <div className="space-y-2">
                         <label htmlFor="lastName" className="text-white">
-                          Last Name
+                          Last Name <span className="text-red-500">*</span>
                         </label>
                         <Input
                           id="lastName"
                           placeholder="Enter your last name"
-                          className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-400"
+                          className="bg-white/20 border-red-900/20 text-white placeholder:text-white/70"
                           value={formData.lastName}
                           onChange={handleChange}
                           required
@@ -152,13 +152,13 @@ export default function ContactPage() {
 
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-white">
-                        Email
+                        Email <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="email"
                         type="email"
                         placeholder="Enter your email address"
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-400"
+                        className="bg-white/20 border-red-900/20 text-white placeholder:text-white/70"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -167,12 +167,12 @@ export default function ContactPage() {
 
                     <div className="space-y-2">
                       <label htmlFor="subject" className="text-white">
-                        Subject
+                        Subject <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="subject"
                         placeholder="What is this regarding?"
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-400"
+                        className="bg-white/20 border-red-900/20 text-white placeholder:text-white/70"
                         value={formData.subject}
                         onChange={handleChange}
                         required
@@ -181,12 +181,12 @@ export default function ContactPage() {
 
                     <div className="space-y-2">
                       <label htmlFor="message" className="text-white">
-                        Message
+                        Message <span className="text-red-500">*</span>
                       </label>
                       <Textarea
                         id="message"
                         placeholder="Enter your message here..."
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-400 min-h-[150px]"
+                        className="bg-white/20 border-red-900/20 text-white placeholder:text-white/70 min-h-[150px]"
                         value={formData.message}
                         onChange={handleChange}
                         required
@@ -275,7 +275,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-lg font-medium text-white">Phone</h3>
                       <p className="text-gray-300 mt-1">
-                        School Number: (905) - 875 - 0124
+                        School Number: (905) 875-0124
                       </p>
                       <p className="text-gray-400 text-sm mt-2">
                         Need to speak with a team member? Call us for quick
