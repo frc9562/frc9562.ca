@@ -160,7 +160,7 @@ export function SponsorsSection() {
   };
 
   return (
-    <section className="py-20 bg-black" id="sponsors">
+    <section className="py-20 bg-gradient-to-b from-black via-gray-950 to-black" id="sponsors">
       <div className="container px-4 mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-2">Our Sponsors</h2>

@@ -10,10 +10,10 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-0 royal-gradient">
+      <section className="pt-28 pb-16 royal-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">
               About Royal Robotics
             </h1>
             <p
@@ -30,7 +30,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="pt-0 pb-8 bg-black" id="mission">
+      <section className="pt-16 pb-8 bg-gradient-to-b from-black via-gray-950 to-black" id="mission">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
@@ -74,7 +74,7 @@ export default function AboutPage() {
       <TeamSection />
 
       {/* Robot Features */}
-      <section className="py-12 bg-gray-950" id="robot-features">
+      <section className="py-12 bg-gradient-to-b from-black via-gray-950 to-gray-900" id="robot-features">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4 animate-fade-in">
@@ -175,7 +175,7 @@ export default function AboutPage() {
       </section>
 
       {/* Awards Section */}
-      <section className="py-12 bg-black" id="awards">
+      <section className="py-12 bg-gradient-to-b from-gray-900 via-black to-black" id="awards">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4 animate-fade-in">
@@ -240,8 +240,20 @@ export default function AboutPage() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="text-white font-medium">McMaster 2025</h4>
+                      <h4 className="text-white font-medium">Humber 2025</h4>
                       <p className="text-red-500">Safety All Star</p>
+                    </div>
+                    <Trophy className="h-8 w-8 text-amber-500" />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gray-900/30 border-red-900/20">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="text-white font-medium">Humber 2025</h4>
+                      <p className="text-red-500">Industrial Design</p>
                     </div>
                     <Trophy className="h-8 w-8 text-amber-500" />
                   </div>

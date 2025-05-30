@@ -103,11 +103,10 @@
 
 @layer components {
   .royal-gradient {
-    background: linear-gradient(to bottom, #000000, #800404 50%, #000000);
+    background: linear-gradient(to bottom, #000000 0%, #400202 25%, #800404 50%, #400202 75%, #000000 100%);
     background-attachment: fixed;
     background-position: top center;
     background-size: cover;
-    min-height: 100vh;
   }
 
   .donation-ruby {

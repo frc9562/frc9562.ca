@@ -3,21 +3,40 @@ import nodemailer from 'nodemailer';
 
 // Environment variables for email configuration
 // These should be set in your .env.local file
-const EMAIL_USER = 'abhimanyu.malik.86@gmail.com'; // Fixed sender email
+const EMAIL_USER = process.env.EMAIL_USER || 'abhimanyu.malik.86@gmail.com';
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const EMAIL_HOST = process.env.EMAIL_HOST || 'smtp.gmail.com';
 const EMAIL_PORT = parseInt(process.env.EMAIL_PORT || '587');
-const GMAIL_RECIPIENT = 'BerardiA@hcdsb.org'; // Fixed recipient email
+const RECIPIENT_EMAIL = 'BerardiA@hcdsb.org'; // Fixed recipient email
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { firstName, lastName, email, subject, message } = body;
+    const { firstName, lastName, email, subject, message, phone, occupation, experience, availability, interests } = body;
+    
+    // Check if this is a mentor application
+    const isMentorApplication = subject === 'Mentor Application';
     
     // Validate form inputs
-    if (!firstName || !lastName || !email || !subject || !message) {
+    if (!firstName || !lastName || !email) {
       return NextResponse.json(
-        { error: 'All fields are required' },
+        { error: 'Name and email are required' },
+        { status: 400 }
+      );
+    }
+    
+    // Additional validation for mentor applications
+    if (isMentorApplication && (!occupation || !experience || !availability)) {
+      return NextResponse.json(
+        { error: 'Occupation, experience, and availability are required for mentor applications' },
+        { status: 400 }
+      );
+    }
+    
+    // Validation for contact forms
+    if (!isMentorApplication && (!subject || !message)) {
+      return NextResponse.json(
+        { error: 'Subject and message are required' },
         { status: 400 }
       );
     }
@@ -54,14 +73,73 @@ export async function POST(request: Request) {
       },
     });
     
-    // Prepare email content
-    const mailOptions = {
-      from: `"FRC 9562 Website" <${EMAIL_USER}>`, // Sender
-      replyTo: email, // Form submitter's email
-      to: GMAIL_RECIPIENT, // Recipient (staff/Gmail address)
-      subject: `Website Contact: ${subject}`,
-      text: `Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `
+    // Determine email type for subject line
+    const emailSubject = isMentorApplication ? `Mentor Application: ${firstName} ${lastName}` : `Website Contact: ${subject}`;
+    
+    // Prepare email content based on form type
+    let textContent, htmlContent;
+    
+    if (isMentorApplication) {
+      textContent = `MENTOR APPLICATION
+      
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Current Occupation: ${occupation}
+Availability: ${availability}
+Areas of Interest: ${interests || 'Not specified'}
+
+Relevant Experience:
+${experience}
+
+Additional Information:
+${message || 'None provided'}`;
+
+      htmlContent = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #c00000;">New Mentor Application</h2>
+          <div style="background-color: #f0f0f0; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <h3 style="color: #333; margin-top: 0;">Applicant Information</h3>
+            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            <p><strong>Current Occupation:</strong> ${occupation}</p>
+            <p><strong>Availability:</strong> ${availability}</p>
+            <p><strong>Areas of Interest:</strong> ${interests || 'Not specified'}</p>
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <h3 style="color: #333;">Relevant Experience</h3>
+            <div style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #c00000;">
+              ${experience.replace(/\n/g, '<br>')}
+            </div>
+          </div>
+          
+          ${message ? `
+          <div style="margin-bottom: 20px;">
+            <h3 style="color: #333;">Additional Information</h3>
+            <div style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #c00000;">
+              ${message.replace(/\n/g, '<br>')}
+            </div>
+          </div>
+          ` : ''}
+          
+          <p style="font-size: 12px; color: #666; margin-top: 20px;">
+            This mentor application was submitted through the FRC 9562 Royal Robotics website.
+          </p>
+        </div>
+      `;
+    } else {
+      textContent = `CONTACT FORM SUBMISSION
+      
+Name: ${firstName} ${lastName}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}`;
+
+      htmlContent = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #c00000;">New Contact Form Submission</h2>
           <p><strong>Name:</strong> ${firstName} ${lastName}</p>
@@ -75,7 +153,17 @@ export async function POST(request: Request) {
             This email was sent from the FRC 9562 Royal Robotics website contact form.
           </p>
         </div>
-      `
+      `;
+    }
+    
+    // Prepare email content
+    const mailOptions = {
+      from: `"FRC 9562 Royal Robotics" <${EMAIL_USER}>`, // Sender
+      replyTo: email, // Form submitter's email
+      to: RECIPIENT_EMAIL, // Recipient email
+      subject: emailSubject,
+      text: textContent,
+      html: htmlContent
     };
     
     // Send email

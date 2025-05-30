@@ -164,18 +164,12 @@ export function TeamSection() {
 
   // Calculate transform value for current position
   const calculateTransform = () => {
-    // Adjust for both gaps and margins in transform calculation
-    const marginAdjustment = slidesToShow === 1 ? 2 : 1; // % for left+right margins
-    const gapAdjustment = slidesToShow === 1 ? 0 : slidesToShow === 2 ? 4 : 5;
-    const slideWidth = slidesToShow === 1 ? 96 : slidesToShow === 2 ? 48 : 31;
-    
-    // Calculate total width including gaps and margins
-    const totalWidthPerSlide = slideWidth + gapAdjustment + marginAdjustment;
-    return `translateX(-${currentIndex * totalWidthPerSlide}%)`;
+    const slideWidth = 100 / slidesToShow; // Equal width for all slides
+    return `translateX(-${currentIndex * slideWidth}%)`;
   };
 
   return (
-    <section className="py-10 bg-gray-950">
+    <section className="py-10 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white mb-3">Meet Our Team</h2>
@@ -211,27 +205,25 @@ export function TeamSection() {
 
           {/* Carousel Track */}
           <div 
-            className="carousel-container overflow-hidden py-2 sm:py-4 md:py-6 px-3 sm:px-4"
+            className="carousel-container overflow-hidden py-4 px-8"
             ref={carouselRef}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
             <div 
-              className="carousel-track flex transition-transform duration-500 ease-out gap-2 sm:gap-3 md:gap-4"
+              className="carousel-track flex transition-transform duration-500 ease-out"
               style={{ transform: calculateTransform() }}
             >
               {carouselSlides.map((member) => (
                 <div
                   key={member.id}
-                  className="carousel-slide flex-shrink-0" 
+                  className="carousel-slide flex-shrink-0 px-3" 
                   style={{ 
-                    width: slidesToShow === 1 ? 'calc(100% - 1rem)' : slidesToShow === 2 ? 'calc(50% - 0.5rem)' : 'calc(33.333% - 0.5rem)',
-                    marginLeft: slidesToShow === 1 ? '0.5rem' : '0.25rem',
-                    marginRight: slidesToShow === 1 ? '0.5rem' : '0.25rem'
+                    width: `${100 / slidesToShow}%`
                   }}
                 >
-                  <Card className="h-full bg-gray-900 border-red-900/20 overflow-hidden flex flex-col hover:scale-[1.02] transition-transform duration-300 max-w-sm mx-auto">
+                  <Card className="h-full bg-gray-900 border-red-900/20 overflow-hidden flex flex-col hover:scale-[1.02] transition-transform duration-300 mx-auto">
                     <div className="relative h-44 sm:h-48 md:h-52 lg:h-56 overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
                       <img

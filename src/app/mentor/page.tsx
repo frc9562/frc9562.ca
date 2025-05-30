@@ -140,7 +140,7 @@ export default function MentorPage() {
                         <Input
                           id="firstName"
                           placeholder="Enter your first name"
-                          className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600"
+                          className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70"
                           value={formData.firstName}
                           onChange={handleChange}
                           required
@@ -154,7 +154,7 @@ export default function MentorPage() {
                         <Input
                           id="lastName"
                           placeholder="Enter your last name"
-                          className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600"
+                          className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70"
                           value={formData.lastName}
                           onChange={handleChange}
                           required
@@ -171,7 +171,7 @@ export default function MentorPage() {
                           id="email"
                           type="email"
                           placeholder="Enter your email address"
-                          className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600"
+                          className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70"
                           value={formData.email}
                           onChange={handleChange}
                           required
@@ -186,7 +186,7 @@ export default function MentorPage() {
                           id="phone"
                           type="tel"
                           placeholder="(XXX) XXX-XXXX"
-                          className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600"
+                          className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70"
                           value={formData.phone}
                           onChange={handleChange}
                         />
@@ -200,7 +200,7 @@ export default function MentorPage() {
                       <Input
                         id="occupation"
                         placeholder="What is your current job/profession?"
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600"
+                        className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70"
                         value={formData.occupation}
                         onChange={handleChange}
                         required
@@ -214,7 +214,7 @@ export default function MentorPage() {
                       <Textarea
                         id="experience"
                         placeholder="Describe your relevant skills or experience in STEM fields, robotics, or working with students..."
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600 min-h-[100px]"
+                        className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70 min-h-[100px]"
                         value={formData.experience}
                         onChange={handleChange}
                         required
@@ -228,7 +228,7 @@ export default function MentorPage() {
                       <Input
                         id="availability"
                         placeholder="How many hours per week can you commit? Which days?"
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600"
+                        className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70"
                         value={formData.availability}
                         onChange={handleChange}
                         required
@@ -242,7 +242,7 @@ export default function MentorPage() {
                       <Input
                         id="interests"
                         placeholder="Programming, mechanical, electrical, business, etc."
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600"
+                        className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70"
                         value={formData.interests}
                         onChange={handleChange}
                       />
@@ -255,7 +255,7 @@ export default function MentorPage() {
                       <Textarea
                         id="message"
                         placeholder="Any other information you'd like to share..."
-                        className="bg-white/10 border-red-900/20 text-white placeholder:text-gray-600 min-h-[100px]"
+                        className="bg-white/10 border-red-900/20 text-white placeholder:text-white/70 min-h-[100px]"
                         value={formData.message}
                         onChange={handleChange}
                       />

@@ -83,7 +83,7 @@ export function Testimonials() {
   const currentTestimonial = testimonials[activeIndex];
 
   return (
-    <section className="py-20 royal-gradient" id="testimonials">
+    <section className="py-20 bg-gradient-to-b from-red-900/30 via-red-800/40 to-black" id="testimonials">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-4 animate-fade-in">Testimonials</h2>
